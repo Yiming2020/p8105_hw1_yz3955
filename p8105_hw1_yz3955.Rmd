@@ -12,9 +12,9 @@ library(tidyverse)
 
 ## Problem 1
 
-Create a data frame with the specified elements.
+###### Create a data frame with the specified elements.
 
-```{r}
+```{r create_df}
 prob1_df = 
   tibble(
     samp = rnorm(10),
@@ -24,24 +24,34 @@ prob1_df =
   )
 ```
 
-Take the mean of each variable in my data frame.
+###### Take the mean of each variable in my data frame.
 
-```{r}
+```{r mean_pull_var}
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_gt_0))
 mean(pull(prob1_df, char_vec))
 mean(pull(prob1_df, factor_vec))
 ```
 
-I can take the mean of numbers and logical vectors but not character or factor vectors.
+###### I can take the mean of numbers and logical vectors but not character or factor vectors.
 
-```{r}
+
+```{r try_numeric, results = 'hide'}
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
 
+###### I can convert logical and factor into number, but not character. This is because the logical vectors:True and false, are considered as number 1 and 0 in the R. And Factors are used to categorize the data and store it on multiple levels, the levels can be converted into numbers.
+###### These conversions help explain why the mean of numbers and logical vectors can be taken but not character or factor vectors.
+
+
+```{r convert_logi}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
+```
 
 
 ## Problem 2
