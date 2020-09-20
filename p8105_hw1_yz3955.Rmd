@@ -76,5 +76,7 @@ ggplot(plot_df, aes(x = bill_length, y = flipper_length, color = species)) +
   geom_point() + 
   xlab("bill length (mm)") +
   ylab("flipper length (mm)")
+
+ggsave("scatterplot_bill_flipper.png")
 ```
 
