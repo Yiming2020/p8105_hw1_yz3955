@@ -8,6 +8,7 @@ This is my solution for HW1
 
 ```{r}
 library(tidyverse)
+data("penguins", package = "palmerpenguins")
 ```
 
 ## Problem 1
@@ -55,3 +56,16 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 
 
 ## Problem 2
+
+The variables in penguins dataset includes: `r ls(penguins)`  
+The species for penguins in the penguins dataset includes: `r levels(penguins$species)`  
+The range year of dataset is `r range(penguins$year, na.rm = FALSE)`  
+The range of bill length of penguins in the dataset is `r range(na.omit(penguins$bill_length_mm), na.rm = FALSE)` mm  
+The penguins data frame has `r nrow(penguins)` rows.
+The penguins data frame has `r ncol(penguins)` columns.  
+The mean flipper length for penguins in this data frame is `r mean(na.omit(penguins$flipper_length_mm))` mm
+
+```{r penguins_description}
+
+```
+
