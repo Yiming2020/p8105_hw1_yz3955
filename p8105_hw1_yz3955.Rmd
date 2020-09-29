@@ -67,13 +67,8 @@ The mean flipper length for penguins in this data frame is `r mean(na.omit(pengu
 
 ###### Create a scatterplot for bill length vs flipper length, and save the plot as "scatterplot_bill_flipper.png"
 ```{r penguins_scatterplot}
-plot_df = tibble(
-  bill_length = penguins$bill_length_mm, 
-  flipper_length = penguins$flipper_length_mm,
-  species = penguins$species
-)
 
-ggplot(plot_df, aes(x = bill_length, y = flipper_length, color = species)) + 
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + 
   geom_point() + 
   xlab("bill length (mm)") +
   ylab("flipper length (mm)")
